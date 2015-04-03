@@ -1,43 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="ro.stomescu.cordova.keychainplugin" version="0.0.1">
+        id="ro.simonaSerseniuc.cordova.securitycheckplugin" version="0.0.1">
     <name>Security</name>
     <description>Security Check</description>
     <license>Apache 2.0</license>
     <keywords>cordova,security,pincode,pin,lock,device</keywords>
-    <js-module src="www/securityCheck.js" name="securityCheck">
+    
+	<js-module src="www/securityCheck.js" name="securityCheck">
         <clobbers target="window.SecurityCheck" />
     </js-module>
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="SecurityCheck">
-                <!--<param name="ios-package" value="CDVKeychain"/>-->
-            </feature>
-        </config-file>
-		<!--
-        <framework src="Security.framework"/>
-
-        <source-file src="src/ios/CDVKeychain.m" />
-        <source-file src="src/ios/UICKeyChainStore.m" />
-
-        <header-file src="src/ios/CDVKeychain.h" />
-        <header-file src="src/ios/UICKeyChainStore.h" />
-		-->
-    </platform>
+	
 	<platform name="android">
-        <config-file target="config.xml" parent="/*">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SecurityCheck">
-                <!--<param name="ios-package" value="CDVKeychain"/>-->
+				<param name="android-package" value="SecurityCheck"/>
             </feature>
-        </config-file>
-		<!--
-        <framework src="Security.framework"/>
-
-        <source-file src="src/ios/CDVKeychain.m" />
-        <source-file src="src/ios/UICKeyChainStore.m" />
-
-        <header-file src="src/ios/CDVKeychain.h" />
-        <header-file src="src/ios/UICKeyChainStore.h" />
-		-->
+        </config-file>	
+        
+        <source-file src="src/android/SecurityCheck.java" />
     </platform>
 </plugin>

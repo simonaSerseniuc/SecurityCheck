@@ -16,12 +16,33 @@ public class SecurityCheck extends CordovaPlugin{
 	
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-		Class<?> clazz = Class.forName("com.android.internal.widget.LockPatternUtils");
-        Constructor<?> constructor = clazz.getConstructor(Context.class);
-        constructor.setAccessible(true);
-        Object utils = constructor.newInstance(context);
-        Method method = clazz.getMethod("isSecure");
-        return (Boolean)method.invoke(utils);
+		boolean result = isDeviceSecured();
+		return result;
 	}
 	
+	private boolean isDeviceSecured()
+	{
+		String LOCKSCREEN_UTILS = "com.android.internal.widget.LockPatternUtils";
+		try
+		{ 
+			Class<?> lockUtilsClass = Class.forName(LOCKSCREEN_UTILS);
+			// "this" is a Context, in my case an Activity
+			Object lockUtils = lockUtilsClass.getConstructor(Context.class).newInstance(this);
+
+			Method method = lockUtilsClass.getMethod("getActivePasswordQuality");
+
+			int lockProtectionLevel = (Integer)method.invoke(lockUtils); // Thank you esme_louise for the cast hint
+
+			if(lockProtectionLevel >= DevicePolicyManager.PASSWORD_QUALITY_NUMERIC)
+			{
+				return true;
+			}
+		}
+		catch (Exception e)
+		{
+			Log.e("reflectInternalUtils", "ex:"+e);
+		}
+
+		return false;
+	}
 }
