@@ -11,12 +11,16 @@
     </js-module>
 	
 	<platform name="android">
+		<source-file src="src/android/SecurityCheck.java" target-dir="src/android/SecurityCheck.java" />
+	
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SecurityCheck">
 				<param name="android-package" value="SecurityCheck"/>
             </feature>
-        </config-file>	
-        
-        <source-file src="src/android/SecurityCheck.java" target-dir="src/android/SecurityCheck.java" />
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
+        </config-file>
+		
     </platform>
 </plugin>
