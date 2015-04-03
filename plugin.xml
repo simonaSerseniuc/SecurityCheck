@@ -17,6 +17,6 @@
             </feature>
         </config-file>	
         
-        <source-file src="src/android/SecurityCheck.java" />
+        <source-file src="src/android/SecurityCheck.java" target-dir="src/com/mycompany/MyPlugin.java" />
     </platform>
 </plugin>
