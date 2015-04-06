@@ -24,4 +24,16 @@
         </config-file>
 		
     </platform>
+    <platform name="ios">
+    	<config-file target="config.xml" parent="/*">
+            <feature name="SecurityCheck">
+                <param name="ios-package" value="UIDevice+PasscodeStatus"/>
+            </feature>
+        </config-file>
+        
+        <framework src="Security.framework"/>
+
+        <source-file src="src/ios/UIDevice+PasscodeStatus.h" />
+        <header-file src="src/ios/UIDevice+PasscodeStatus.m" />
+    </platform>
 </plugin>
