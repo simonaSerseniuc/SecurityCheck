@@ -1,8 +1,12 @@
+package android.com.phonegap.plugins.securityCheck;
+
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
 import android.util.Log;
+import android.app.admin.DevicePolicyManager;
+import android.content.Context;
 import android.provider.Settings;
 import android.widget.Toast;
 import org.json.JSONArray;

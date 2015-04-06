@@ -11,8 +11,9 @@
     </js-module>
 	
 	<platform name="android">
-		<source-file src="src/android/SecurityCheck.java" target-dir="src/android/SecurityCheck.java" />
-	
+		<source-file src="src/android/com/phonegap/plugins/securityCheck" target-dir="src/android/com/phonegap/plugins/securityCheck" />
+		<source-file src="src/android/java-json.jar" target-dir="src/android/java-json.jar"/>
+		
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SecurityCheck">
 				<param name="android-package" value="SecurityCheck"/>
