@@ -12,7 +12,7 @@
 	
 	<platform name="android">
 		<source-file src="src/android/SecurityCheck.java" target-dir="src/android/com/phonegap/plugins/securityCheck" />
-		<source-file src="src/android/java-json.jar" target-dir="libs"/>
+		<!--<source-file src="src/android/java-json.jar" target-dir="libs"/>-->
 		
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SecurityCheck">
